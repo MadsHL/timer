@@ -1,0 +1,56 @@
+{
+	"Name": "Timer",
+	"Version": "0.1.0.0",
+	"Author": "Mads Hansen Lund",
+	"Actions": [
+		{
+			"Name": "Adaptive Dial Timer",
+			"UUID": "dk.dasma.timer.adaptive-dial-timer",
+			"Icon": "imgs/actions/adaptive-dial-timer/icon",
+			"Tooltip": "Adaptive countdown timer for Stream Deck+ dials.",
+			"PropertyInspectorPath": "ui/adaptive-dial-timer.html",
+			"Controllers": [
+				"Encoder"
+			],
+			"Encoder": {
+				"Icon": "imgs/actions/adaptive-dial-timer/encoder-icon",
+				"StackColor": "#0F766E",
+				"TriggerDescription": {
+					"Push": "Start, pause, resume, or reset",
+					"Rotate": "Adjust time with adaptive steps",
+					"LongTouch": "Reset timer"
+				},
+				"layout": "layouts/adaptive-dial-timer.json"
+			},
+			"OS": [
+				"mac"
+			],
+			"UserTitleEnabled": false,
+			"States": [
+				{
+					"Image": "imgs/actions/adaptive-dial-timer/key"
+				}
+			]
+		}
+	],
+	"Category": "Timer",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Adaptive Stream Deck+ dial countdown timer for macOS.",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "6.9"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "dk.dasma.timer"
+}

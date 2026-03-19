@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>Adaptive Dial Timer Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        body {
+            margin: 0;
+            padding: 8px 10px 12px;
+        }
+
+        .section-title {
+            margin: 10px 0 4px;
+            color: rgba(255, 255, 255, 0.66);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .range-field {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 78px;
+            gap: 8px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .range-field sdpi-range {
+            min-width: 0;
+        }
+
+        .range-value {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 5px;
+            width: 78px;
+            box-sizing: border-box;
+            padding: 3px 7px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 7px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .range-value input {
+            width: 100%;
+            min-width: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #ffffff;
+            font: inherit;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .range-value input::-webkit-outer-spin-button,
+        .range-value input::-webkit-inner-spin-button {
+            margin: 0;
+        }
+
+        .range-unit {
+            color: rgba(255, 255, 255, 0.64);
+            font-size: 11px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section-title">Timer</div>
+    <sdpi-item label="Default Minutes">
+        <div class="range-field">
+            <sdpi-range setting="defaultStartMinutes" min="0" max="120" step="1" default="0"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="defaultStartMinutes" type="number" inputmode="numeric" min="0" max="120" step="1" />
+                <span class="range-unit">min</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Long Press">
+        <div class="range-field">
+            <sdpi-range setting="longPressThresholdMs" min="700" max="1200" step="50" default="800"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="longPressThresholdMs" type="number" inputmode="numeric" min="700" max="1200" step="50" />
+                <span class="range-unit">ms</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Max Minutes">
+        <div class="range-field">
+            <sdpi-range setting="maxDurationMinutes" min="15" max="720" step="15" default="720"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="maxDurationMinutes" type="number" inputmode="numeric" min="15" max="720" step="15" />
+                <span class="range-unit">min</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <div class="section-title">Steps</div>
+    <sdpi-item label="Fine Step">
+        <div class="range-field">
+            <sdpi-range setting="fineStepSeconds" min="1" max="15" step="1" default="1"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="fineStepSeconds" type="number" inputmode="numeric" min="1" max="15" step="1" />
+                <span class="range-unit">s</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Medium Step">
+        <div class="range-field">
+            <sdpi-range setting="mediumStepSeconds" min="2" max="30" step="1" default="10"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="mediumStepSeconds" type="number" inputmode="numeric" min="2" max="30" step="1" />
+                <span class="range-unit">s</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Fast Step">
+        <div class="range-field">
+            <sdpi-range setting="fastStepSeconds" min="5" max="120" step="5" default="30"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="fastStepSeconds" type="number" inputmode="numeric" min="5" max="120" step="5" />
+                <span class="range-unit">s</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Very Fast Step">
+        <div class="range-field">
+            <sdpi-range setting="veryFastStepSeconds" min="10" max="300" step="10" default="60"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="veryFastStepSeconds" type="number" inputmode="numeric" min="10" max="300" step="10" />
+                <span class="range-unit">s</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <div class="section-title">Speeds</div>
+    <sdpi-item label="Fine Speed">
+        <div class="range-field">
+            <sdpi-range setting="fineThresholdMsPerTick" min="260" max="1000" step="20" default="480"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="fineThresholdMsPerTick" type="number" inputmode="numeric" min="260" max="1000" step="20" />
+                <span class="range-unit">ms</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Medium Speed">
+        <div class="range-field">
+            <sdpi-range setting="mediumThresholdMsPerTick" min="120" max="600" step="10" default="220"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="mediumThresholdMsPerTick" type="number" inputmode="numeric" min="120" max="600" step="10" />
+                <span class="range-unit">ms</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <sdpi-item label="Fast Speed">
+        <div class="range-field">
+            <sdpi-range setting="fastThresholdMsPerTick" min="40" max="300" step="10" default="100"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="fastThresholdMsPerTick" type="number" inputmode="numeric" min="40" max="300" step="10" />
+                <span class="range-unit">ms</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <div class="section-title">Sound</div>
+    <sdpi-item label="Completion Sound">
+        <sdpi-checkbox setting="soundEnabled" default="true">Enabled</sdpi-checkbox>
+    </sdpi-item>
+
+    <sdpi-item label="Sound">
+        <sdpi-select setting="soundChoice" default="Glass">
+            <option value="Glass">Glass</option>
+            <option value="Hero">Hero</option>
+            <option value="Ping">Ping</option>
+            <option value="Submarine">Submarine</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Repeat Count">
+        <div class="range-field">
+            <sdpi-range setting="soundRepeatCount" min="1" max="10" step="1" default="1"></sdpi-range>
+            <label class="range-value">
+                <input data-range-setting="soundRepeatCount" type="number" inputmode="numeric" min="1" max="10" step="1" />
+                <span class="range-unit">x</span>
+            </label>
+        </div>
+    </sdpi-item>
+
+    <script>
+        function clamp(value, min, max) {
+            return Math.min(max, Math.max(min, value));
+        }
+
+        function snap(value, min, step) {
+            if (!Number.isFinite(step) || step <= 0) {
+                return value;
+            }
+
+            return min + Math.round((value - min) / step) * step;
+        }
+
+        function readRangeNumber(range, attributeName, fallback) {
+            const raw = range.getAttribute(attributeName);
+            const value = Number(raw);
+            return Number.isFinite(value) ? value : fallback;
+        }
+
+        function commitRangeValue(range, input) {
+            const min = readRangeNumber(range, "min", 0);
+            const max = readRangeNumber(range, "max", min);
+            const step = readRangeNumber(range, "step", 1);
+            const parsed = Number(input.value);
+
+            if (!Number.isFinite(parsed)) {
+                syncInputFromRange(range, input);
+                return;
+            }
+
+            const next = clamp(snap(parsed, min, step), min, max);
+            range.value = String(next);
+            range.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
+            range.dispatchEvent(new Event("change", { bubbles: true, composed: true }));
+            input.value = String(next);
+        }
+
+        function syncInputFromRange(range, input) {
+            const value = range.value ?? range.getAttribute("value") ?? range.getAttribute("default") ?? "";
+            input.value = value;
+        }
+
+        function bindRangeInput(input) {
+            const setting = input.dataset.rangeSetting;
+            if (!setting) {
+                return;
+            }
+
+            const range = document.querySelector(`sdpi-range[setting="${setting}"]`);
+            if (!range) {
+                return;
+            }
+
+            const sync = () => syncInputFromRange(range, input);
+            range.addEventListener("input", sync);
+            range.addEventListener("change", sync);
+            input.addEventListener("change", () => commitRangeValue(range, input));
+            input.addEventListener("blur", () => commitRangeValue(range, input));
+            input.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    commitRangeValue(range, input);
+                    input.blur();
+                }
+            });
+
+            sync();
+            requestAnimationFrame(sync);
+            setTimeout(sync, 150);
+        }
+
+        customElements.whenDefined("sdpi-range").then(() => {
+            document.querySelectorAll("input[data-range-setting]").forEach((input) => bindRangeInput(input));
+        });
+    </script>
+</body>
+
+</html>

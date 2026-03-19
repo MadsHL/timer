@@ -1,0 +1,10 @@
+{
+	"id": "dk.dasma.timer.adaptive-dial-timer.layout",
+	"items": [
+		{
+			"key": "visual",
+			"type": "pixmap",
+			"rect": [0, 0, 200, 100]
+		}
+	]
+}
